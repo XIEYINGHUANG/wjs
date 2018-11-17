@@ -1,0 +1,45 @@
+body{
+    background-color: skyblue;
+}
+/*
+1.定义变量
+*/
+@bgc:yellow;
+@w-200:100px;
+@h-200:100px;
+@m-10:20px;
+@border-color:hotpink;
+.box1{
+    background-color:@bgc;
+    width: @w-200;
+    height: @h-200;
+    margin-top: @m-10;
+}
+.box2{
+    background-color:@bgc;
+    width: @w-200;
+    height: @h-200;
+    margin-top: @m-10;
+    .border();
+}
+.box3{
+    background-color:@bgc;
+    width: @w-200;
+    height: @h-200;
+    margin-top: @m-10;
+}
+/*2.mixins 自定义函数*/
+.border {
+    border-top: 10px solid green;
+   border-bottom: 5px dashed hotpink;
+}
+/*给自定义函数添加参数*/
+.border(@size,@style) {
+    border-top: @size @style @border-color;
+   border-bottom: @size @style @border-color;
+}
+.border(@size:5px,@style:solid) {
+    border-top: @size @style @border-color;
+   border-bottom: @size @style @border-color;
+}
+/* 3. 嵌套CSS嵌套 */
